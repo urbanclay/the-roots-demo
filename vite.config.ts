@@ -5,12 +5,17 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [
-  react(),
-  tailwindcss(),
-],
-    tailwindcss(),
+    react(),
+    tailwindcss()
   ],
-  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src")
+    }
+  },
   base: "./",
-  build: { outDir: "dist", emptyOutDir: true },
+  build: {
+    outDir: "dist",
+    emptyOutDir: true
+  }
 });
