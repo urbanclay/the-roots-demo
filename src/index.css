@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Clash Display", sans-serif;
+  --font-body: "Satoshi", sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  /* Neo-Brutalist Palette */
+  --radius: 0rem; /* Sharp edges */
+  
+  /* Paper White */
+  --background: oklch(0.98 0 0);
+  /* Ink Black */
+  --foreground: oklch(0.15 0 0);
+  
+  /* Card White */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  
+  /* Electric Cobalt Blue */
+  --primary: oklch(0.45 0.25 260); 
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Acid Green */
+  --secondary: oklch(0.85 0.2 140);
+  --secondary-foreground: oklch(0.15 0 0);
+  
+  /* Muted Gray */
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  
+  /* Accent Pink/Red */
+  --accent: oklch(0.6 0.25 0);
+  --accent-foreground: oklch(0.98 0 0);
+  
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  
+  --destructive: oklch(0.577 0.245 27.325);
+  
+  --border: oklch(0.15 0 0); /* Thick black borders */
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.45 0.25 260);
+}
+
+.dark {
+  /* Inverted Mode */
+  --background: oklch(0.15 0 0);
+  --foreground: oklch(0.98 0 0);
+  
+  --card: oklch(0.2 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  
+  --primary: oklch(0.85 0.2 140); /* Green becomes primary */
+  --primary-foreground: oklch(0.15 0 0);
+  
+  --secondary: oklch(0.45 0.25 260); /* Blue becomes secondary */
+  --secondary-foreground: oklch(1 0 0);
+  
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  
+  --accent: oklch(0.6 0.25 0);
+  --accent-foreground: oklch(0.98 0 0);
+  
+  --popover: oklch(0.2 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  
+  --border: oklch(0.98 0 0);
+  --input: oklch(0.98 0 0);
+  --ring: oklch(0.85 0.2 140);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold uppercase tracking-tight;
+  }
+}
+
+/* Custom Utilities for Brutalist shadows */
+.shadow-brutal {
+  box-shadow: 4px 4px 0px 0px var(--border);
+}
+.shadow-brutal-lg {
+  box-shadow: 8px 8px 0px 0px var(--border);
+}
+.shadow-brutal-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--border);
+}
+.shadow-brutal-active:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--border);
+}
